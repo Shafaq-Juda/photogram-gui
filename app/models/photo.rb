@@ -69,3 +69,5 @@ class Photo < ApplicationRecord
     return formatted_usernames
   end
 end
+
+

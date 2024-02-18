@@ -37,3 +37,4 @@ class FollowRequest < ApplicationRecord
     return the_user
   end
 end
+

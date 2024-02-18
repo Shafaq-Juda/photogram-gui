@@ -36,3 +36,4 @@ class Like < ApplicationRecord
     return the_photo
   end
 end
+

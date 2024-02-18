@@ -10,6 +10,7 @@
 #  photo_id   :integer
 #
 
+
 class Comment < ApplicationRecord
   validates(:commenter, { :presence => true })
 
