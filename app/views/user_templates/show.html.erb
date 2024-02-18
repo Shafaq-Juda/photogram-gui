@@ -2,13 +2,13 @@
 
 <dl>
     <dt>ID</dt>
-    <dd>id</dd>
+    <dd><%= @the_user.id %></dd>
 
     <dt>Edit user</dt>
     <dd>
         <form action = "/users/:path_username">
             <label for = "user_name">Username</label>       
-            <input id = "user_name" name = ""/>
+            <input id = "user_name" name = "user_name" value = "@the_user.username"/>
             <button type = "submit">Update user</button> 
         </form>
     </dd>
