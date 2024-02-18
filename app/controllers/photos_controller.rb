@@ -13,4 +13,7 @@ class PhotosController < ApplicationController
     render ({ :template => "photo_templates/show" })
   end 
 
+  def del
+    render ({ :template => "photo_templates/del" })
+  end
 end
