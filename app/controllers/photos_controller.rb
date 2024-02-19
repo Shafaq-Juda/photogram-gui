@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
   def index
     matching_photos = Photo.all
     @list_of_photos = matching_photos.order({ :created_at => :desc })
-    render({ :template => "photo_templates/index" }) 
+    render ({ :template => "photo_templates/index" }) 
   end
 
   def show
@@ -21,5 +21,21 @@ class PhotosController < ApplicationController
 
     #render ({ :template => "photo_templates/del" })
     redirect_to("/photos") 
+  end
+
+  def create
+  input_image = params.fetch("query_image")
+  input_caption = params.fetch("query_caption")
+  input_owner_id = params.fetch("query_owner_id")
+
+  a_new_photo = Photo.
+  
+  a_new_photo.image = input_image
+  a_new_photo.caption = input_caption
+  a_new_photo.owner_id = input_owner_id
+
+  a_new_photo.save
+
+    render({ :template => "photo_templates/create" })
   end
 end
