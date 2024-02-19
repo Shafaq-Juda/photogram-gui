@@ -16,4 +16,14 @@ class UsersController < ApplicationController
     render ({ :template => "user_templates/show" })
     #<% end %>
   end
+
+  def add_user
+    new_username = params.fetch("username")
+    new_user = User.new
+    new_user.username = new_username
+
+    new_user.save
+
+    redirect_to("/users/<%= a_user.username%>")
+  end
 end

@@ -72,7 +72,7 @@ class PhotosController < ApplicationController
     new_comment.body = the_comment
 
     new_comment.save
-    #render ({ :template => "photos/update"})
+    
     redirect_to("/photos/" + photo_id.to_s)
   end
 end
