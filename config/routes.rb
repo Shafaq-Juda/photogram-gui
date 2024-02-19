@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get("/add_user", { :controller => "users", :action => "add_user" })
 
+  get("/update_user/:modify_user", { :controller => "users", :action => "update_user" })
+
   get("/photos", { :controller => "photos", :action => "index" })
   
   get("/photos/:path_id", { :controller => "photos", :action => "show" })

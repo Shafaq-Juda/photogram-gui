@@ -24,6 +24,26 @@ class UsersController < ApplicationController
 
     new_user.save
 
-    redirect_to("/users/<%= a_user.username%>")
+    redirect_to("/users/#{new_user.username}")
+  end
+
+  def update_user
+
+   # Parameters: {"path_username"=>"anisa"}
+    # route = users/:modify_user
+    original_username = params.fetch("modify_user")
+
+    matching_users = User.where( :username => original_username)
+
+    updated_user = matching_users.at(0)
+
+    updated_username = params.fetch("user_name")
+
+    updated_user.username = updated_username
+
+    updated_user.save
+  
+    redirect_to("/users/#{updated_username}")
+
   end
 end

@@ -6,7 +6,7 @@
 
     <dt>Edit user</dt>
     <dd>
-        <form action = "/users/:path_username">
+        <form action = "/update_user/<%= @the_user.username%>" method="get">
             <label for = "user_name">Username</label>       
             <input id = "user_name" name = "user_name" value = "<%= @the_user.username%>"/>
             <button type = "submit">Update user</button> 
