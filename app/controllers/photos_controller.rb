@@ -61,18 +61,21 @@ class PhotosController < ApplicationController
   def comment
     # params: ?input_photo_id=629&input_author_id=111&input_comment=woowwww
 
+    #first fetch all the values in the form 
     photo_id = params.fetch("input_photo_id")
-    matching_comments = Comment.where({ :photo_id => photo_id})
-    new_comment = matching_comments.at(0)
-
     author_id = params.fetch("input_author_id")
     the_comment = params.fetch("input_comment")
 
+    #then create a new Comment instance
+    new_comment = Comment.new
+    new_comment.photo_id = photo_id
     new_comment.author_id = author_id
     new_comment.body = the_comment
 
+    #Finally save
     new_comment.save
     
     redirect_to("/photos/" + photo_id.to_s)
+   
   end
 end
