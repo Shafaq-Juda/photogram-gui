@@ -1,3 +1,5 @@
 class HomepageController < ApplicationController
-render ({ })
+  def index
+  redirect_to("/users") 
+  end
 end
