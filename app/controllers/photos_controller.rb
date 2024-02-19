@@ -59,19 +59,20 @@ class PhotosController < ApplicationController
 
 
   def comment
-   
+    # params: ?input_photo_id=629&input_author_id=111&input_comment=woowwww
+
     photo_id = params.fetch("input_photo_id")
     matching_comments = Comment.where({ :photo_id => photo_id})
-    the_comment = matching_comments.at(0)
+    new_comment = matching_comments.at(0)
 
     author_id = params.fetch("input_author_id")
-    input_comment = params.fetch("input_comment")
+    the_comment = params.fetch("input_comment")
 
-    the_comment.author_id = author_id
-    the_comment.body = input_comment
+    new_comment.author_id = author_id
+    new_comment.body = the_comment
 
-    the_comment.save
+    new_comment.save
     #render ({ :template => "photos/update"})
-    redirect_to("/photos/" + the_photo.id.to_s)
+    redirect_to("/photos/" + photo_id.to_s)
   end
 end
