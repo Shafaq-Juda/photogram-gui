@@ -1,16 +1,16 @@
 class PhotosController < ApplicationController
 
-  def index
+  def index 
     matching_photos = Photo.all
-    @list_of_photos = matching_photos.order({ :created_at => :desc })
-    render ({ :template => "photo_templates/index" }) 
+    @list_of_photos = matching_photos.order({ :username => :asc })
+    render ({ :template => "photos/index" })
   end
 
   def show
     url_id = params.fetch("path_id")
     matching_photos = Photo.where({ :id => url_id})
     @the_photo = matching_photos.at(0)
-    render ({ :template => "photo_templates/show" })
+    render ({ :template => "photos/show" })
   end 
 
   def del
@@ -28,7 +28,7 @@ class PhotosController < ApplicationController
   input_caption = params.fetch("query_caption")
   input_owner_id = params.fetch("query_owner_id")
 
-  a_new_photo = Photo.
+  a_new_photo = Photo.new
   
   a_new_photo.image = input_image
   a_new_photo.caption = input_caption
@@ -36,6 +36,7 @@ class PhotosController < ApplicationController
 
   a_new_photo.save
 
-    render({ :template => "photo_templates/create" })
+  #render({ :template => "photos/create" })
+  redirect_to("/photos/" + a_new_photo.id.to_s)
   end
 end
