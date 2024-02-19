@@ -16,12 +16,12 @@
 
  <dt>Edit photo</dt>
     <dd>
-    <form action = "#">
+    <form action = "/update_photo/<%= @the_photo.id %>">
         <label for = "image" >Image</label>
-        <input id = "image" name = "image" value = "<%= @the_photo.image %>"/>
+        <input id = "image" name = "query_image" placeholder= "Enter a URL for the image..." value = "<%= @the_photo.image %>"/>
 
         <label for ="caption">Caption</label>
-        <input id = "caption" name = "caption" value = "<%= @the_photo.caption %>"/>
+        <textarea id = "caption" name = "query_caption" placeholder = "Enter a caption for the photo..."> <%= @the_photo.caption %> </textarea>
 
         <button type = "submit">Update photo</button>
     </form>
